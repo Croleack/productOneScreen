@@ -12,33 +12,47 @@ struct TabBar: View {
 	   TabView {
 		  Group {
 			 tabItem(for: MainView(),
-				    image: "tree.circle",
-				    text: "Главная"
+				    image: Constants.imageFirst,
+				    text: Constants.textFirst
 			 )
 			 tabItem(for: CatalogView(),
-				    image: "square.grid.3x3.topleft.filled",
-				    text: "Каталог"
+				    image: Constants.imageSecond,
+				    text: Constants.textSecond
 			 )
 			 tabItem(for: BusketView(),
-				    image: "cart",
-				    text: "Корзина"
+				    image: Constants.imageThird,
+				    text: Constants.textThird
 			 )
 			 tabItem(for: ProfileView(),
-				    image: "person",
-				    text: "Профиль"
+				    image: Constants.imageFourth,
+				    text: Constants.textFourth
 			 )
 		  }
-		  .padding(8)
+		  .padding(Constants.padding)
 	   }
 	   .accentColor(.green)
     }
-    private func tabItem<T: View>(for content: T,
-						    image: String,
-						    text: String) -> some View {
+    private func tabItem<T: View>(for content: T, image: String,text: String) -> some View {
 	   content
 		  .tabItem {
 			 Image(systemName: image)
 			 Text(text)
 		  }
+    }
+}
+
+// MARK: - Constants
+
+fileprivate extension TabBar {
+    enum Constants {
+	   static let imageFirst = "tree.circle"
+	   static let textFirst = "Главная"
+	   static let imageSecond = "square.grid.3x3.topleft.filled"
+	   static let textSecond = "Каталог"
+	   static let imageThird = "cart"
+	   static let textThird = "Корзина"
+	   static let imageFourth = "person"
+	   static let textFourth = "Профиль"
+	   static let padding = 8.0
     }
 }

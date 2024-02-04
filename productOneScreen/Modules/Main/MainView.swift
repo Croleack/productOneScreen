@@ -9,7 +9,30 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-	   Text("Main")
+	   NavigationView {
+		  VStack {
+			 MainNavigationBarView()
+			 Divider()
+			 ScrollView(.vertical, showsIndicators: false) {
+				VStack(alignment:.leading ,spacing: .zero){
+				    ButtonPriceView()
+				    TeaView()
+				    ReviewsView()
+				    NameView()
+				    СountryView()
+				    DescriptionView()
+				    BasicCharacteristicsView()
+				    HeadingView()
+				    FeedbackView()
+				    LeaveFeedbackView()
+				    Divider()
+				    UnitsView()
+				    PriceView()
+				}
+			 }
+		  }
+	   }
+	   .navigationBarHidden(true)
     }
 }
 
